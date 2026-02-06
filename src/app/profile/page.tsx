@@ -20,9 +20,10 @@ import {
 
 const ProfilePage = () => {
   const { user } = useUser();
+  if(!user) return null;
   const userId = user?.id as string;
 
-  const allPlans = useQuery(api.plans.getUserPlans, { userId });
+  const allPlans = useQuery(api.plans.getUserPlans, userId ? { userId } : "skip" );
   const [selectedPlanId, setSelectedPlanId] = useState<null | string>(null);
 
   const activePlan = allPlans?.find((plan) => plan.isActive);
