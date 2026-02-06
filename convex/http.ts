@@ -120,7 +120,7 @@ function validateWorkoutPlan(plan: any) {
   }
 
 http.route({
-    path: "/vapi/generate-program",
+    path: "/generate-program",
     method:  "POST",
     handler: httpAction(async (ctx, request) => {
         try {
